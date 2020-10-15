@@ -1,17 +1,26 @@
+// Libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// Link Files
+import Footer from './components/header-footer/Footer';
+import Header from './components/header-footer/Header';
+import Home from './home/Home';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// Styles
+import './main.scss';
+
+const Routes = () => {
+  return (
+    <BrowserRouter>
+      <div>
+        <Route path="/" component={Header} />
+        <Route exact path="/" component={Home} />
+        <Footer />
+      </div>
+    </BrowserRouter>
+  );
+};
+
+ReactDOM.render(<Routes />, document.getElementById('root'));
