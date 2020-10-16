@@ -7,10 +7,10 @@ const Home = () => {
       <div className="home__header">
         <div className="wrapper">
           <div className="logo"></div>
-          <Nav />
+          <Nav context="home" />
           <div className="home__caption">EXPLORE NEW ALBUM</div>
+          <div className="home__scroll-down"></div>
         </div>
-        <div className="home__scroll-down"></div>
       </div>
     </div>
   );
