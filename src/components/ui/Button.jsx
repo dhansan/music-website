@@ -1,4 +1,3 @@
-import { render } from 'node-sass';
 import React, { Fragment } from 'react';
 
 const Button = ({ type, text, context, clickHandler }) => {
@@ -17,12 +16,13 @@ const Button = ({ type, text, context, clickHandler }) => {
         );
       default:
         return (
-          <div className="primary-button" onClick={clickHandler}>
+          <div onClick={clickHandler} className={`prim-button`}>
             {text}
           </div>
         );
     }
   };
+
   return <Fragment>{renderButton()}</Fragment>;
 };
 
