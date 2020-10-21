@@ -1,24 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 const Nav = (props) => {
-  const { context } = props;
+  const { context, history } = props;
+  const getClassName = (pathname) =>
+    `main-nav__item ${history.location.pathname === pathname ? 'active' : ''}`;
+
   return (
     <div className={`main-nav main-nav--${context}`}>
-      <Link className="main-nav__item" to="/about">
+      <NavLink className={getClassName('/about')} exact to="/about">
         About
-      </Link>
-      <Link className="main-nav__item" to="/discography">
+      </NavLink>
+      <NavLink className={getClassName('/discography')} exact to="/discography">
         Discography
-      </Link>
-      <Link className="main-nav__item" to="/tour">
+      </NavLink>
+      <NavLink className={getClassName('/tour')} exact to="/tour">
         Tour
-      </Link>
-      <Link className="main-nav__item" to="/shop">
+      </NavLink>
+      <NavLink className={getClassName('/shop')} exact to="/shop">
         Shop
-      </Link>
+      </NavLink>
     </div>
   );
 };
 
-export default Nav;
+export default withRouter(Nav);
